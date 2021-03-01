@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methods DOMJS</title>
+</head>
+
+<body>
+    <p>I'm Bean</p>
+    <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    <p class="intro">This is find By ClassName/Query</p>
+    <p id="demo"></p>
+    <a href="sample#" name="anchors">HTML</a>
+    <h2>Finding HTML Elements by Tag Name</h2>
+
+    <div id="main">
+        <p>The DOM is very useful.</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+    </div>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo6"></p>
+    <h2>Finding HTML Elements Using document.forms</h2>
+
+    <form id="frm1" action="/action_page.php">
+        First name: <input type="text" name="fname" value="Donald"><br>
+        Last name: <input type="text" name="lname" value="Duck"><br><br>
+        <input type="submit" value="Submit">
+    </form>
+
+    <p>Click "Try it" to display the value of each element in the form.</p>
+
+    <button onclick="myFunction()">Try it</button>
+
+    <p id="demo5"></p>
+    <script>
+        var x = document.getElementsByTagName("p");
+        document.getElementById('demo').innerHTML = 'The text in first paragraph (index 0) is: ' + x[0].innerHTML;
+
+        //other
+        var x1 = document.getElementById('main');
+        var y = x1.getElementsByTagName('p');
+        document.getElementById('demo1').innerHTML = 'The first Paragraph inside main is :' + y[0].innerHTML;
+        //find by className
+        x2 = document.getElementsByClassName('intro');
+        document.getElementById('demo2').innerHTML = 'The First paragraph (index 0) with the class="intro" : ' + x[0].innerHTML;
+        //Find by Html Ele by Query Selector
+        var q = document.querySelectorAll("p.intro");
+        document.getElementById('demo3').innerHTML = 'The first paragraph (index 0) with the class ="intro" :' + q[0].innerHTML;
+        //Find in form
+        function myFunction() {
+            var x = document.forms['frm1'];
+            var text = '';
+            var i;
+            for (i = 0; i < x.length; i++) {
+                text += x.elements[i].value + "<br>";
+            }
+            document.getElementById('demo5').innerHTML = text;
+        }
+        //Anchor
+        document.getElementById('demo4').innerHTML = 'Number of anchors are: ' + document.anchors.length;
+        //document.body
+        // alert(document.body.innerHTML)
+        //number of Form
+        // document.getElementById('demo5').innerHTML = 'Number of Form:' + document.forms.length;
+        //Number of images: document.images.length;
+        //Number of link
+        document.getElementById('demo6').innerHTML = "number of Link "+ document.links.length;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen</title>
+</head>
+
+<body>
+    <p id="demo"></p>
+    <h3>The window.location object</h3>
+    <p id="demo1"></p>
+    <input type="button" value="Back" onclick="goBack()">
+    <input type="button" value="Forward" onclick="goForward()">
+    <h2>The Navigator Object</h2>
+
+    <p>The cookieEnabled property returns true if cookies are enabled:</p>
+
+    <p id="demo2"></p>
+    <h2>The Navigator Object</h2>
+
+    <p>The appName property returns the application name of the browser:</p>
+
+    <p id="demo3"></p>
+
+    <p>Strange enough, "Netscape" is the application name for IE11, Chrome, Firefox, and Safari.</p>
+    <h2>The Navigator Object</h2>
+
+    <p>The product property returns the product name of the browser.</p>
+
+    <p>Do not rely on it! Most browsers returns "Gecko" as product name!</p>
+
+    <p id="demo4"></p>
+    <h2>The Navigator Object</h2>
+
+    <p>The appVersion property returns version information about the browser:</p>
+
+    <p id="demo5"></p>
+    <p>The userAgent property returns the user-agent header sent by the browser to the server:</p>
+
+    <p id="demo6"></p>
+
+    <script>
+        document.getElementById("demo").innerHTML = "Screen width is " + screen.width + ", Screen height is: " + screen.height + ", Available Screen width: " + screen.availWidth + ", Available Screen height: " + screen.availWidth + ", Screen Color Depth: " + screen.colorDepth + ", Screen Pixel Depth: " + screen.pixelDepth;
+        document.getElementById("demo1").innerHTML = "The full URL of this page is: <br>" + window.location.href;
+        //Window History
+        function goBack() {
+            window.history.back()
+        }
+        function goForward() {
+            window.history.forward()
+        }
+        //Window Navigatior
+        document.getElementById("demo2").innerHTML =
+            "navigator.cookieEnabled is " + navigator.cookieEnabled;
+        document.getElementById("demo3").innerHTML =
+            "navigator.appName is " + navigator.appName;
+        document.getElementById("demo4").innerHTML =
+            "navigator.product is " + navigator.product;
+        document.getElementById("demo5").innerHTML = navigator.appVersion;
+
+        document.getElementById("demo6").innerHTML =
+            navigator.userAgent;
+            
+    </script>
+
+</body>
+
+</html>

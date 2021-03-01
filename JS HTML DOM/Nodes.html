@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Nodes</title>
+</head>
+<body>
+    <div id="div1">
+        <p id="p1">This is a paragraph</p>
+        <p id="p2">This is another paragraph</p>
+    </div>
+    <script>
+        var para = document.createElement("p");
+        var node = document.createTextNode("This is new MF1.")
+        var para1 = document.createElement("p");
+        var node1 = document.createTextNode("This is new MF2.")
+        para.appendChild(node); 
+        para1.appendChild(node1);
+        var elem = document.getElementById("div1");
+        //insert After
+        elem.appendChild(para1);
+        var child2 = document.getElementById('p2');
+        //Insert before
+        elem.insertBefore(para, child2); 
+        //remove
+        var child = document.getElementById('p1');
+        elem.removeChild(child);
+        // //We also can use parent node
+        // child.parentNode.removeChild(child);
+        //Replace Nodes
+        var paraRe = document.createElement("p");
+        var nodeRe = document.createTextNode("This is Replace!");
+        paraRe.appendChild(nodeRe);
+        elem.replaceChild(paraRe, child2);
+    </script>
+</body>
+</html>

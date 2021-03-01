@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window location</title>
+</head>
+
+<body>
+    <h3>The window.location object</h3>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <h3>The window.location object</h3>
+
+    <input type="button" value="Load new document" onclick="newDoc()">
+    <script>
+        document.getElementById("demo").innerHTML =
+            "The full URL of this page is:<br>" + window.location.href;
+        document.getElementById("demo1").innerHTML =
+            "Page hostname is: " + window.location.hostname;
+        document.getElementById("demo2").innerHTML =
+            "Page protocol is " + window.location.protocol;
+        document.getElementById("demo3").innerHTML =
+            "The URL port number of the current page is: " + window.location.port;
+        function newDoc() {
+            window.location.assign("https://www.w3schools.com")
+        }
+    </script>
+</body>
+
+</html>

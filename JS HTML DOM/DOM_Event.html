@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event</title>
+</head>
+
+<body onload="checkTheCookies()">
+    <h1 onclick="changeText(this)" style="cursor: pointer;">Click on the text!</h1>
+    <p>Click the button to display the date.</p>
+    <button id="demo" onclick="displayDate()">The time is</button>
+    <p>display date in mess</p>
+    <button id="btn">click me!</button>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    Enter your name: <input type="text" id="fname" onchange="myFunction()">
+
+    <p>When you leave the input field, a function is triggered which transforms the input text to upper case.</p>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+        style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+        Mouse Over Me</div>
+<h1>Double Click in this!</h1>
+    <div onmousedown="mDown(this)" onmouseup="mUp(this)"
+        style="background-color:#D94A38;width:90px;height:20px;padding:40px;">
+        Click Me</div>
+    <script>
+        function changeText(id) {
+            id.innerHTML = "Oops!"
+        }
+        function displayDate() {
+            document.getElementById('demo').innerHTML = Date();
+        }
+        //another way to click the button and date will display in the text
+        document.getElementById('btn').onclick = displayDate1;
+        function displayDate1() {
+            document.getElementById('demo1').innerHTML = Date();
+        }
+        //The cookies
+        function checkTheCookies() {
+            var text = "";
+            if (navigator.cookieEnabled == true) {
+                text = "cookies is enbled.";
+            } else {
+                text = "cookies are not enbled.";
+            }
+            document.getElementById('demo2').innerHTML = text;
+        }
+        //Change the text with js (uppercase)
+        function myFunction() {
+            var x = document.getElementById("fname");
+            x.value = x.value.toUpperCase();
+        }
+        //Over Out
+        function mOver(obj) {
+            obj.innerHTML = 'Thank you'
+        }
+        function mOut(obj) {
+            obj.innerHTML = 'Mouse Over Me'
+        }
+        //Click
+        function mDown(obj){
+            obj.style.backgroundColor= "#1ec5e5";
+            obj.innerHTML = "Release Me";
+        }
+        function mUp(obj){
+            obj.style.backgroundColor= "#D94A38";
+            obj.innerHTML = "Thank you";
+        }
+    </script>
+</body>
+
+</html>

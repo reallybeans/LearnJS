@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<body onload="startTime()">
+
+    <p>Click "Try it". Wait 3 seconds, and the page will alert "Hello".</p>
+
+    <button onclick="setTimeout(myFunction, 3000);">Try it</button>
+    <p>Click "Try it". Wait 3 seconds. The page will alert "Hello".</p>
+    <p>Click "Stop" to prevent the first function to execute.</p>
+    <p>(You must click "Stop" before the 3 seconds are up.)</p>
+    <button onclick="myVar = setTimeout(myFunction, 3000)">Try it</button>
+
+    <button onclick="clearTimeout(myVar)">Stop it</button>
+    <p>A script on this page starts this clock:</p>
+
+    <p id="demo"></p>
+    <button onclick="clearInterval(x)">Stop</button>
+
+    <div id="txt"></div>
+    <button onclick="text()">try it</button>
+    <div id="txt1"></div>
+    <script>
+        function myFunction() {
+            alert('Hello');
+        }
+        var x = setInterval(myTimer, 1000);
+        function myTimer() {
+            var d = new Date();
+            document.getElementById("demo").innerHTML = d.toLocaleTimeString();
+        }
+        //another Timing Clock
+        function startTime() {
+            var today = new Date();
+            var h = today.getHours();
+            var m = today.getMinutes();
+            var s = today.getSeconds();
+            m = checkTime(m);
+            s = checkTime(s);
+            document.getElementById('txt').innerHTML = h + ":" + m + ":" + s;
+            var t = setTimeout(startTime, 500);
+        }
+        function checkTime(i) {
+            if (i < 10) {
+                i = "0" + i;
+            }
+            return i;
+        }
+        function text() {
+            setTimeout(myTimeOut1, 2000);
+            setTimeout(myTimeOut2, 4000);
+            setTimeout(myTimeOut3, 6000);
+        }
+        function myTimeOut1() {
+            document.getElementById('txt1').innerHTML = "2s";
+        }
+        function myTimeOut2() {
+            document.getElementById('txt1').innerHTML = "4s";
+        }
+        function myTimeOut3() {
+            document.getElementById('txt1').innerHTML = "6s";
+        }
+    </script>
+
+</body>
+
+</html>

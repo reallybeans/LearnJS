@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections</title>
+</head>
+
+<body>
+
+    <h2>JavaScript HTML DOM</h2>
+
+    <p>Hello World!</p>
+
+    <p>Hello Norway!</p>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <script>
+        var myCollection = document.getElementsByTagName("p");
+        document.getElementById('demo').innerHTML = "The elementHTML of the second paragraph is: " + myCollection[1].innerHTML;
+        var p_length = myCollection.length;
+        for (let i = 0; i < p_length; i++) {
+            if (i % 2 === 0) {
+                myCollection[i].style.color = "red"; 
+            } 
+        }
+        //Query to select all
+        var myNodeList = document.querySelectorAll("p");
+        for (let i = 0; i < myNodeList.length; i++) {
+             
+             if (i == 1) {
+                myNodeList[i].style.color = "orange"  
+             } 
+        }
+    </script>
+</body>
+
+</html>
