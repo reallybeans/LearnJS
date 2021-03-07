@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Response</title>
+</head>
+
+<body>
+    <div id="demo">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc('ajax_info.txt', myFunction)">Change Content
+        </button>
+    </div>
+
+    <div id="demo1">
+        <h2>The XMLHttpRequest Object</h2>
+        <button type="button" onclick="loadDoc1()">Change Content</button>
+    </div>
+    <h2>The HTMLHttpRequest Object</h2>
+    <button type="button" onclick="loadDoc2()">Click To See Artist</button>
+    <p id="demo2"></p>
+    <script>
+        //CALL BACK FUNCTION
+        function loadDoc(url, cFunction) {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    cFunction(this);
+                }
+            };
+            xhttp.open("GET", url, true);
+            xhttp.send();
+        }
+
+        function myFunction(xhttp) {
+            document.getElementById('demo').innerHTML = xhttp.responseText;
+        }
+        //The responseText Propertise
+        function loadDoc1() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById('demo1').innerHTML = this.responseText + "<br>"+ "Last Modified: " +  this.getResponseHeader("Last-Modified");;
+                }
+            };
+            xhttp.open("GET", "ajax_info.txt", true);
+            xhttp.send();
+        }
+        //Get Res from catalog.xml
+        function loadDoc2() {
+            var xhttp, xmlDoc, txt, x, i;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    xmlDoc = this.responseXML;
+                    txt = "";
+                    x = xmlDoc.getElementsByTagName("ARTIST");
+                    for (i = 0; i < x.length; i++) {
+                        txt = txt + x[i].childNodes[0].nodeValue + "<br>";
+                    }
+                    document.getElementById("demo2").innerHTML = txt;
+                }
+            };
+            xhttp.open("GET", "cd_catalog.xml", true);
+            xhttp.send();
+        }
+    </script>
+</body>
+
+</html>

@@ -15,8 +15,7 @@
     <script>
         function myfunction() {
             console.log("1");
-        } 
-       setInterval(myfunction, 1);
+        }  
     </script>
 
 </body>
