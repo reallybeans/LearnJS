@@ -1,0 +1,1 @@
+If you use the XMLHttpRequest Object, Fetch can do the same in a simpler way.
