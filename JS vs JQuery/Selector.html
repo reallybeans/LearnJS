@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JQUERY</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h2>Finding HTML Elements by Id</h2>
+
+    <p id="id01">Hello World!</p>
+    <p id="id02">Hello Sweden!</p>
+    <p id="id03">Hello Japan!</p>
+    <p class="intro">Hi Bitch!</p>
+    <p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <script>
+        //Find by id
+        $(document).ready(function(){
+            var myElements = $('#id01');
+            $("#demo").text("The text from the \'id01\' paragraph is: " + myElements[0].innerHTML);
+        });
+        //find by TagName
+        $(document).ready(function(){
+            var myElements = $("p");
+            $("#demo1").text("The text in the first paragraph is :"+ myElements[2].innerHTML);
+        });
+        //find by ClassName
+        $(document).ready(function(){
+            var myElements = $(".intro");
+            $("#demo2").text("the text from the class intro is : " + myElements[0].innerHTML);
+        });
+        $(document).ready(function(){
+            var myElements = $("#id03");
+            myElements.hide();
+            //to Show the ID02
+            myElements.show();
+            //to Edit display
+            myElements.css("font-size","35px");
+        });
+        //To remove the item
+        $('#id03').remove();
+        //to know the parents nodes
+        var parent = $("#id02").parent();
+        $("#demo3").text(parent.prop("nodeName"));
+    </script>
+</body>
+
+</html>
